@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../images/marioBG.jpeg");
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: bottom; 
+    background-color: #021234;
+}
+
+#wrapper { 
+    padding: 20px;
+    width: 50%;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#wrapper::after {
+    background-image: url("../images/white.jpeg");
+    background-repeat: repeat;
+    opacity: 50%;
+    content: "";
+    opacity: 0.8;
+    top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  border-radius: 5px;
+}
+
+
+header {
+    box-sizing: border-box;
+    padding: 0 30px 0 30px;
+    font-size: 1.4em;
+    position: relative;
+}
+
+.mario {
+    width: 100px;
+    position: absolute;
+    top: -25px;
+    right:70px;
+}
+
+table img {
+    width: 125px;
+    height: 125px;
+}
+
+td {
+    padding:10px;
+}
+
+.progress-bar {
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.progress-bar > div {
+    width: 33%;
+    padding: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.progress-bar p {
+    margin: 0;
+}
+
+.progress-bar p:nth-child(2) {
+    font-size: 1.8em;
+}
+
+.progress-bar > div:nth-child(2), 
+.progress-bar > div:nth-child(3) {
+    border-left: 1px solid black;
+}
+
+@media (max-width: 660px) {
+    table img {
+        width: 75px;
+        height: 75px;
+    }
+    td {
+        padding: 5px;
+    }
+}
