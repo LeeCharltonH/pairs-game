@@ -14,7 +14,18 @@ let intervalId = setInterval(function(){
 function welcomePopUp(){
     document.getElementById("welcome").style.display="none";
     document.getElementById("gameWrapper").style.display="block";
+
+    let user = document.getElementById("userName").value;
+    let helloMessage = document.getElementById("nameInput");
+    helloMessage.innerHTML = user;
 }
+
+
+
+
+
+
+
 
 
 

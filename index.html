@@ -9,12 +9,17 @@
     <div id="wrapper">
         <main>
             <div id="welcome">
-                <p>Welcome pop up</p>
-                <input type="submit" value="Play Now" onclick="welcomePopUp()">
+                <p>Welcome to the Mario pairs game</p>
+                <p>Enter your name and press the button when you're ready to begin.</p>
+                <form>
+                    <label for="userName">Enter Name <span style="font-size: 0.7em; color: gray;">(optional)</span></label><br>
+                    <input type="text" id="userName"><br><br>
+                    <input type="button" value="Play Now" onclick="welcomePopUp()">
+                </form>
             </div>
             <div id="gameWrapper">
                 <header>
-                    <p>Hello [Name ]</p><img src="images/marioWave.png" alt="Mario waving" class="mario">
+                    <p>Hello <span id="nameInput"></span></p><img src="images/marioWave.png" alt="Mario waving" class="mario">
                     <p>Select 2 cards below and try to find a match!</p>
                 </header>
                 <table style="border-collapse: collapse; margin: auto;">
