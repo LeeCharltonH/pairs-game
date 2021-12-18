@@ -90,6 +90,10 @@ td {
     border-left: 1px solid black;
 }
 
+#gameWrapper{
+    display: none;
+}
+
 @media (max-width: 660px) {
     table img {
         width: 75px;

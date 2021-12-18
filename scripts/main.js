@@ -11,6 +11,11 @@ let intervalId = setInterval(function(){
    sec++;
 }, 1000);
 
+function welcomePopUp(){
+    document.getElementById("welcome").style.display="none";
+    document.getElementById("gameWrapper").style.display="block";
+}
+
 
 
 
