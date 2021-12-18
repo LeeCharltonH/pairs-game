@@ -1,0 +1,16 @@
+"use strict";
+
+let sec = 0;
+let min = 0;
+let intervalId = setInterval(function(){
+   if(sec === 61){
+      sec = 0;
+      min++
+   }
+   timer.innerHTML = min + ":" + sec;
+   sec++;
+}, 1000);
+
+
+
+
