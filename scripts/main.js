@@ -24,7 +24,7 @@ function welcomePopUp(){
 }
 
 
-//Added click event to reveal card and timeout after 2 seconds
+//Reveals cards and checks for a match
 let cardContainer = document.getElementsByClassName("card-container");
 
 for(let i = 0; i < cardContainer.length; i++){
@@ -40,7 +40,6 @@ for(let i = 0; i < cardContainer.length; i++){
                     revealedCards[i+1].classList.remove("revealed");
                     revealedCards[i].classList.remove("revealed");
                     }
-
             } else if(revealedCards.length > 1){
                 for(let i = 0; i < cardContainer.length; i++){
                 cardContainer[i].classList.remove("revealed");
@@ -48,6 +47,41 @@ for(let i = 0; i < cardContainer.length; i++){
             }
         }, 2000);
     });
+}
+
+//Shuffles cards randomly
+let cardImages = [
+    "images/marioCards/mario_1.png",
+    "images/marioCards/mario_1.png",
+    "images/marioCards/mario_2.png",
+    "images/marioCards/mario_2.png",
+    "images/marioCards/mario_3.png",
+    "images/marioCards/mario_3.png",
+    "images/marioCards/mario_4.png",
+    "images/marioCards/mario_4.png",
+    "images/marioCards/mario_5.png",
+    "images/marioCards/mario_5.png",
+    "images/marioCards/mario_6.png",
+    "images/marioCards/mario_6.png"
+]
+
+function shuffleArray(array) {//source:https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+shuffleArray(cardImages);
+
+console.log(cardImages);
+
+//Assigns cards randomly
+
+for(let i=0; i<cardContainer.length; i++){
+    cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
 }
 
 
