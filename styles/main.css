@@ -51,13 +51,23 @@ header {
     right:70px;
 }
 
-table img {
+
+
+td {
+    margin: 10px;
+    display: block;
+    float: left;
+    position: relative;
     width: 125px;
     height: 125px;
 }
 
-td {
-    padding:10px;
+td img {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    top: 0;
+    left: 0;
 }
 
 .progress-bar {
