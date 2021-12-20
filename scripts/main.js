@@ -26,12 +26,19 @@ function welcomePopUp(){
 
 //Reveals cards and checks for a match
 let cardContainer = document.getElementsByClassName("card-container");
+let moves = 0;
+let movesInput = document.getElementById("movesCounter");
 
 for(let i = 0; i < cardContainer.length; i++){
     cardContainer[i].addEventListener("click", function(){
         cardContainer[i].classList.add("revealed");
-
         let revealedCards = document.getElementsByClassName("revealed");
+        
+        if(revealedCards.length > 1){
+            movesInput.innerHTML = moves += 1;
+        }
+
+        
         setTimeout(function(){
             if(revealedCards.length > 1 && revealedCards[0].childNodes[1].getAttribute("src") === revealedCards[1].childNodes[1].getAttribute("src")){
                 for(let i = 0; i < revealedCards.length; i++){
@@ -76,13 +83,15 @@ function shuffleArray(array) {//source:https://stackoverflow.com/questions/24509
 
 shuffleArray(cardImages);
 
-console.log(cardImages);
-
 //Assigns cards randomly
 
 for(let i=0; i<cardContainer.length; i++){
     cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
-}
+};
+
+
+
+
 
 
 
