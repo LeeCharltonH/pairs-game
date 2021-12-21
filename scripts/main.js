@@ -1,17 +1,22 @@
 "use strict";
 
 //This section runs a counter in the games progress bar
-let sec = 0;
-let min = 0;
-let intervalId = setInterval(function(){
-   if(sec === 61){
-      sec = 0;
-      min++
-   }
-   timer.innerHTML = min + ":" + sec;
-   sec++;
-   
-}, 1000);
+function progressTimer(){
+    let sec = 1;
+    let min = 0;
+    
+    let intervalId = setInterval(function(){
+    if(sec < 10){
+        sec = "0" + sec;
+    } else if(sec === 60){
+        sec = "0" + 0;
+        min++
+    };
+    timer.innerHTML = min + ":" + sec;
+    sec++;
+    
+    }, 1000);
+};
 
 //Takes the name input and adds it to the welcome message of the game page
 function welcomePopUp(){
@@ -28,16 +33,21 @@ function welcomePopUp(){
 let cardContainer = document.getElementsByClassName("card-container");
 let moves = 0;
 let movesInput = document.getElementById("movesCounter");
+let isRevealing = false;
 
 for(let i = 0; i < cardContainer.length; i++){
-    cardContainer[i].addEventListener("click", function(){
+    
+    cardContainer[i].addEventListener("click", function revealCard(){
+        if(!isRevealing){
+            
         cardContainer[i].classList.add("revealed");
         let revealedCards = document.getElementsByClassName("revealed");
         
         if(revealedCards.length > 1){
-            movesInput.innerHTML = moves += 1;
+            isRevealing = true;
+            console.log("Start")
+            movesInput.innerHTML = moves += 1; 
         }
-
         
         setTimeout(function(){
             if(revealedCards.length > 1 && revealedCards[0].childNodes[1].getAttribute("src") === revealedCards[1].childNodes[1].getAttribute("src")){
@@ -48,13 +58,17 @@ for(let i = 0; i < cardContainer.length; i++){
                     revealedCards[i].classList.remove("revealed");
                     }
             } else if(revealedCards.length > 1){
-                for(let i = 0; i < cardContainer.length; i++){
-                cardContainer[i].classList.remove("revealed");
+                    for(let i = 0; i < cardContainer.length; i++){
+                    cardContainer[i].classList.remove("revealed");
                 }
             }
-        }, 2000);
+            isRevealing = false;
+            console.log("Finish")
+         }, 2000);
+        }
     });
 }
+
 
 //Shuffles cards randomly
 let cardImages = [
@@ -88,6 +102,7 @@ shuffleArray(cardImages);
 for(let i=0; i<cardContainer.length; i++){
     cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
 };
+
 
 
 

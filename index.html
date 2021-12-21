@@ -14,7 +14,7 @@
                 <form>
                     <label for="userName">Enter Name <span style="font-size: 0.7em; color: gray;">(optional)</span></label><br>
                     <input type="text" id="userName"><br><br>
-                    <input type="button" value="Play Now" onclick="welcomePopUp()">
+                    <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()">
                 </form>
             </div>
             <div id="gameWrapper">
@@ -89,9 +89,12 @@
                     </div>
                     <div>
                         <p>Timer</p>
-                        <p id="timer"></p>
+                        <p id="timer">0:00</p>
                     </div>
                 </div>
+            </div>
+            <div id="congratulations">
+                <p>Congratulations</p>
             </div>
         </main>
     </div>

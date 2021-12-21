@@ -112,6 +112,10 @@ td img {
     display: none;
 }
 
+#congratulations{
+    display: none;
+}
+
 @media (max-width: 660px) {
     table img {
         width: 75px;
