@@ -21,7 +21,7 @@ function progressTimer(){
 //Takes the name input and adds it to the welcome message of the game page
 function welcomePopUp(){
     document.getElementById("welcome").style.display="none";
-    document.getElementById("gameWrapper").style.display="block";
+    document.getElementById("gameWrapper").style.display="flex";
 
     let user = document.getElementById("userName").value;
     let helloMessage = document.getElementById("nameInput");
@@ -72,18 +72,18 @@ for(let i = 0; i < cardContainer.length; i++){
 
 //Shuffles cards randomly
 let cardImages = [
-    "images/marioCards/mario_1.png",
-    "images/marioCards/mario_1.png",
-    "images/marioCards/mario_2.png",
-    "images/marioCards/mario_2.png",
-    "images/marioCards/mario_3.png",
-    "images/marioCards/mario_3.png",
-    "images/marioCards/mario_4.png",
-    "images/marioCards/mario_4.png",
-    "images/marioCards/mario_5.png",
-    "images/marioCards/mario_5.png",
-    "images/marioCards/mario_6.png",
-    "images/marioCards/mario_6.png"
+    "images/marioCards/mario_1.jpg",
+    "images/marioCards/mario_1.jpg",
+    "images/marioCards/mario_2.jpg",
+    "images/marioCards/mario_2.jpg",
+    "images/marioCards/mario_3.jpg",
+    "images/marioCards/mario_3.jpg",
+    "images/marioCards/mario_4.jpg",
+    "images/marioCards/mario_4.jpg",
+    "images/marioCards/mario_5.jpg",
+    "images/marioCards/mario_5.jpg",
+    "images/marioCards/mario_6.jpg",
+    "images/marioCards/mario_6.jpg"
 ]
 
 function shuffleArray(array) {//source:https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
