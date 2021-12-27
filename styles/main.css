@@ -47,9 +47,7 @@ header {
 
 .mario {
     width: 100px;
-    position: absolute;
-    top: -25px;
-    right:70px;
+    float: right;
 }
 
 #card-grid {
@@ -57,12 +55,11 @@ header {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    justify-items: center;
+    
 }
 
 .card-row {
     display: flex;
-    flex-direction: row;
 }
 
 .card-container {
@@ -74,10 +71,7 @@ header {
 
 .card-container img {
     position: absolute;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
+    width: 100%; 
     border-radius: 5px;
 }
 
@@ -103,12 +97,13 @@ header {
     padding: 10px 0 10px 0;
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     font-weight: bold;
 }
 
 .progress-bar p {
-    margin: 0;
+    margin: auto;
 }
 
 .progress-bar p:nth-child(2) {
@@ -139,11 +134,12 @@ header {
         align-content: center;
     }
     .card-row{
-        width: 70%;
+        max-width: 500px;
+        justify-content: space-evenly;
     }
     .card-container {
-        width: 25%;
-        padding: 5px;
+        padding: 0px;
+        margin: 5px;
     }
 }
 
@@ -151,4 +147,25 @@ header {
     #wrapper{
         width: 80%;
     }
+    .mario{
+        width: 75px;
+    }
+    .card-row{
+        width:100%;
+    }
+    .card-container {
+        width: 25%;
+        height: auto;
+       padding-top: 25%;
+    }
+    .card-container img{
+        top: 0;
+    }
+    .progress-bar {
+        padding: 5px;
+    }
+    .progress-bar div {
+        padding: 0;
+    }
+    
 }
