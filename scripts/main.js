@@ -1,10 +1,10 @@
 "use strict";
 
 //This section runs a counter in the games progress bar
+let sec = 1;
+let min = 0;
+
 function progressTimer(){
-    let sec = 1;
-    let min = 0;
-    
     let intervalId = setInterval(function(){
     if(sec < 10){
         sec = "0" + sec;
@@ -34,6 +34,9 @@ let cardContainer = document.getElementsByClassName("card-container");
 let moves = 0;
 let movesInput = document.getElementById("movesCounter");
 let isRevealing = false;
+let roundsPlayed = 0;
+let roundsInput = document.getElementById("roundsCounter");
+
 
 for(let i = 0; i < cardContainer.length; i++){
     
@@ -45,7 +48,6 @@ for(let i = 0; i < cardContainer.length; i++){
         
         if(revealedCards.length > 1){
             isRevealing = true;
-            console.log("Start")
             movesInput.innerHTML = moves += 1; 
         }
         
@@ -63,7 +65,7 @@ for(let i = 0; i < cardContainer.length; i++){
                 }
             }
             isRevealing = false;
-            console.log("Finish")
+            congrats();
          }, 2000);
         }
     });
@@ -101,6 +103,45 @@ shuffleArray(cardImages);
 
 for(let i=0; i<cardContainer.length; i++){
     cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
+};
+
+//Shows congratulations page once complete
+
+function congrats() {
+    let matchedCards = document.getElementsByClassName("matchedCards");
+     if(matchedCards.length == 12){
+        document.getElementById("gameWrapper").style.display="none";
+        document.getElementById("congratulations").style.display="flex";
+        pullStats();
+     };
+};
+
+function pullStats(){
+    let timeToComplete = document.getElementById("timer").innerHTML;
+    let movesToComplete = document.getElementById("movesCounter").innerHTML;
+    let congratsPageTime = document.getElementById("totalTime");
+    let congratsPageMoves = document.getElementById("totalMoves");
+
+    congratsPageTime.innerHTML = timeToComplete;
+    congratsPageMoves.innerHTML = movesToComplete;
+
+}
+
+function playAgain(){
+    document.getElementById("congratulations").style.display="none";
+    document.getElementById("gameWrapper").style.display="flex";
+
+    movesInput.innerHTML = 0;
+    roundsInput.innerHTML = roundsPlayed +=1;
+
+    sec = 1;
+    min = 0;
+
+    moves = 0;
+
+    for(let i = 0; i < cardContainer.length; i++){
+        cardContainer[i].classList.remove("matchedCards");
+    };
 };
 
 
