@@ -1,8 +1,5 @@
 body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-family: 'Roboto', sans-serif;
     background-image: url("../images/marioBG.jpeg");
     background-repeat: repeat-x;
@@ -15,7 +12,7 @@ body {
     padding: 20px;
     width: 50%;
     border-radius: 5px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -131,11 +128,56 @@ header {
     border-left: 1px solid black;
 }
 
+#pauseButton, #playButton, #restart {
+    cursor: pointer;
+}
+
 #gameWrapper{
     display: none;
     flex-direction: column;
     align-items: center;
     justify-items: center;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 10;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 300px;
+    max-width: 80%;
+}
+
+#modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#modal-body {
+    padding-top: 10px;
+}
+
+#overlay {
+    position: fixed;
+    background-color: black;
+    z-index: 9;
+    opacity: 50%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: scale(0);
+    transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+    transform: scale(1);
 }
 
 #congratulations{

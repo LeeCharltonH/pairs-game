@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <div id="modal">
+        <div id="modal-title">
+            Confirm to restart game
+        </div>
+        <div id="modal-body">
+            <button onclick="restart()">Restart</button>
+            <button onclick="continueGame()">Continue</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
     <div id="wrapper">
         <main>
             <div id="welcome">
@@ -84,9 +94,9 @@
                         <img src="images/pause.png" alt="Pause game" width="25" style="display: inline;" onclick="pause()" id="pauseButton">
                         <img src="images/play.png.crdownload" alt="Continue game" width="25" style="display: none;" onclick="play()" id="playButton">
                     </div>
-                    <div id="restart" onclick="restart()">
+                    <div>
                         <p>Restart</p>
-                        <img src="images/restart.png" alt="Restart game" width="25">
+                        <img src="images/restart.png" alt="Restart game" width="25" id="restart" onclick="restartModal()">
                     </div>
                 </div>
                 <div class="progress-bar">
@@ -112,6 +122,7 @@
             </div>
         </main>
     </div>
+    
     <script src="scripts/main.js"></script>
 </body>
 </html>

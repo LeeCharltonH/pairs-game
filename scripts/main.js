@@ -167,6 +167,9 @@ function restart(){
     for(let i = 0; i < cardContainer.length; i++){
         cardContainer[i].classList.remove("matchedCards");
     };
+
+    modalWindow.classList.remove("active");
+    modalOverlay.classList.remove("active");  
 };
 
 function pause(){
@@ -181,6 +184,23 @@ function play(){
 
     document.getElementById("pauseButton").style.display="inline";
     document.getElementById("playButton").style.display="none";
+};
+
+let modalWindow = document.getElementById("modal");
+let modalOverlay = document.getElementById("overlay");
+
+function restartModal() {
+    clearInterval(intervalId);
+
+    modalWindow.classList.add("active");
+    modalOverlay.classList.add("active");      
+};
+
+function continueGame() {
+    progressTimer();
+
+    modalWindow.classList.remove("active");
+    modalOverlay.classList.remove("active");
 };
 
 
