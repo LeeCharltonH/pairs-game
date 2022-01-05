@@ -8,7 +8,7 @@
 <body>
     <div id="wrapper">
         <main>
-            <div id="welcome" style="display: none;">
+            <div id="welcome">
                 <p>Welcome to the Mario pairs game</p>
                 <p>Enter your name and press the button when you're ready to begin.</p>
                 <form>
@@ -17,7 +17,7 @@
                     <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()">
                 </form>
             </div>
-            <div id="gameWrapper" style="display: flex;">
+            <div id="gameWrapper">
                 <header>
                     <p>Hello <span id="nameInput"></span></p>
                     <p>Select 2 cards below and try to find a match!</p>
@@ -81,9 +81,10 @@
                 <div class="pause-restart">
                     <div>
                         <p>Pause</p>
-                        <img src="images/pause.png" alt="Pause game" width="25">
+                        <img src="images/pause.png" alt="Pause game" width="25" style="display: inline;" onclick="pause()" id="pauseButton">
+                        <img src="images/play.png.crdownload" alt="Continue game" width="25" style="display: none;" onclick="play()" id="playButton">
                     </div>
-                    <div>
+                    <div id="restart" onclick="restart()">
                         <p>Restart</p>
                         <img src="images/restart.png" alt="Restart game" width="25">
                     </div>

@@ -4,8 +4,10 @@
 let sec = 1;
 let min = 0;
 
+var intervalId
+
 function progressTimer(){
-    let intervalId = setInterval(function(){
+    intervalId = setInterval(function(){
     if(sec < 10){
         sec = "0" + sec;
     } else if(sec === 60){
@@ -149,14 +151,37 @@ function playAgain(){
     for(let i = 0; i < cardContainer.length; i++){
         cardContainer[i].classList.remove("matchedCards");
     };
-
-    console.log(cardImages);
 };
 
+function restart(){
+    shuffleArray(cardImages);
+    assignCards();
 
-console.log(cardImages);
+    movesInput.innerHTML = 0;
 
+    sec = 1;
+    min = 0;
 
+    moves = 0;
+
+    for(let i = 0; i < cardContainer.length; i++){
+        cardContainer[i].classList.remove("matchedCards");
+    };
+};
+
+function pause(){
+    clearInterval(intervalId);
+
+    document.getElementById("pauseButton").style.display="none";
+    document.getElementById("playButton").style.display="inline";
+};
+
+function play(){
+    progressTimer();
+
+    document.getElementById("pauseButton").style.display="inline";
+    document.getElementById("playButton").style.display="none";
+};
 
 
 
