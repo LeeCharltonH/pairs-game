@@ -6,6 +6,11 @@ let min = 0;
 
 var intervalId
 
+let audioGameComplete = new Audio("audio/game-complete.wav"); //audio source: https://themushroomkingdom.net/media/smb/wav
+let audioPairFound = new Audio("audio/pair-found.wav");
+let audioPause = new Audio("audio/pause.wav");
+
+
 function progressTimer(){
     intervalId = setInterval(function(){
     if(sec < 10){
@@ -62,6 +67,8 @@ for(let i = 0; i < cardContainer.length; i++){
                     revealedCards[i+1].classList.add("matchedCards");
                     revealedCards[i+1].classList.remove("revealed");
                     revealedCards[i].classList.remove("revealed");
+
+                    audioPairFound.play();
                     }
             } else if(revealedCards.length > 1){
                     for(let i = 0; i < cardContainer.length; i++){
@@ -119,6 +126,7 @@ function congrats() {
         document.getElementById("gameWrapper").style.display="none";
         document.getElementById("congratulations").style.display="flex";
         pullStats();
+        audioGameComplete.play();
      };
 };
 
@@ -174,6 +182,8 @@ function restart(){
 
 function pause(){
     clearInterval(intervalId);
+
+    audioPause.play();
 
     document.getElementById("pauseButton").style.display="none";
     document.getElementById("playButton").style.display="inline";

@@ -21,9 +21,15 @@
             <div id="welcome">
                 <p>Welcome to the Mario pairs game</p>
                 <p>Enter your name and press the button when you're ready to begin.</p>
+
                 <form>
                     <label for="userName">Enter Name <span style="font-size: 0.7em; color: gray;">(optional)</span></label><br>
                     <input type="text" id="userName"><br><br>
+                    Enable audio?<br>
+                    <input type="radio" id="yes" name="enable-audio" value="yes" checked>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="enable-audio" value="no">
+                    <label for="no">No</label><br><br>
                     <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()">
                 </form>
             </div>
