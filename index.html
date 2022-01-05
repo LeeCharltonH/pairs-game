@@ -8,7 +8,7 @@
 <body>
     <div id="wrapper">
         <main>
-            <div id="welcome">
+            <div id="welcome" style="display: none;">
                 <p>Welcome to the Mario pairs game</p>
                 <p>Enter your name and press the button when you're ready to begin.</p>
                 <form>
@@ -17,9 +17,8 @@
                     <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()">
                 </form>
             </div>
-            <div id="gameWrapper">
+            <div id="gameWrapper" style="display: flex;">
                 <header>
-                    <img src="images/marioWave.png" alt="Mario waving" class="mario">
                     <p>Hello <span id="nameInput"></span></p>
                     <p>Select 2 cards below and try to find a match!</p>
                 </header>
@@ -79,6 +78,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="pause-restart">
+                    <div>
+                        <p>Pause</p>
+                        <img src="images/pause.png" alt="Pause game" width="25">
+                    </div>
+                    <div>
+                        <p>Restart</p>
+                        <img src="images/restart.png" alt="Restart game" width="25">
+                    </div>
+                </div>
                 <div class="progress-bar">
                     <div>
                         <p>Moves</p>
@@ -96,10 +105,8 @@
             </div>
             <div id="congratulations">
                 <p>Congratulations</p>
-                <p>Total time to complete: </p>
-                <p id="totalTime"></p><br>
-                <p>Total moves to complete: </p>
-                <p id="totalMoves"></p><br>
+                <p>Total time to complete: <span id="totalTime"></span>.</p>
+                <p>Total moves to complete: <span id="totalMoves"></span>.</p>
                 <input type="button" value="Play Again" onclick="playAgain()">
             </div>
         </main>

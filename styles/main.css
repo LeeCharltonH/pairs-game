@@ -41,13 +41,9 @@ header {
     width: 100%;
     box-sizing: border-box;
     padding: 0 30px 0 30px;
-    font-size: 1.4em;
+    font-size: 1.2em;
     position: relative;
-}
-
-.mario {
-    width: 100px;
-    float: right;
+    
 }
 
 #card-grid {
@@ -83,6 +79,26 @@ header {
     display:none;
 }
 
+.pause-restart {
+    background-color: #e35911;
+    border-top: 2px solid #f7c7a8;
+    border-left: 2px solid #f7c7a8;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    display: flex;
+    box-sizing: border-box;
+    padding-bottom: 16px;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 0.8em;
+}
+
+.pause-restart > div {
+    text-align: center;
+    width: 100px;
+    
+}
+
 .progress-bar {
     width: 100%;
     display: flex;
@@ -90,13 +106,13 @@ header {
     padding: 10px 20px 10px 20px;
     border: 1px solid black;
     border-radius: 5px;
+    font-size: 0.9em;
 }
 
 .progress-bar > div {
     width: 33%;
     padding: 10px 0 10px 0;
     display: flex;
-    align-items: center;
     text-align: center;
     flex-direction: column;
     font-weight: bold;
@@ -124,6 +140,7 @@ header {
 
 #congratulations{
     display: none;
+    flex-direction: column;
 }
 
 @media (max-width: 1200px) {

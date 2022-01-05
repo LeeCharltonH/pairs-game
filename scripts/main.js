@@ -20,6 +20,8 @@ function progressTimer(){
 
 //Takes the name input and adds it to the welcome message of the game page
 function welcomePopUp(){
+    assignCards()
+
     document.getElementById("welcome").style.display="none";
     document.getElementById("gameWrapper").style.display="flex";
 
@@ -74,17 +76,17 @@ for(let i = 0; i < cardContainer.length; i++){
 
 //Shuffles cards randomly
 let cardImages = [
-    "images/marioCards/mario_1.jpg",
-    "images/marioCards/mario_1.jpg",
-    "images/marioCards/mario_2.jpg",
-    "images/marioCards/mario_2.jpg",
     "images/marioCards/mario_3.jpg",
-    "images/marioCards/mario_3.jpg",
-    "images/marioCards/mario_4.jpg",
-    "images/marioCards/mario_4.jpg",
-    "images/marioCards/mario_5.jpg",
-    "images/marioCards/mario_5.jpg",
+    "images/marioCards/mario_1.jpg",
     "images/marioCards/mario_6.jpg",
+    "images/marioCards/mario_2.jpg",
+    "images/marioCards/mario_3.jpg",
+    "images/marioCards/mario_4.jpg",
+    "images/marioCards/mario_1.jpg",
+    "images/marioCards/mario_5.jpg",
+    "images/marioCards/mario_4.jpg",
+    "images/marioCards/mario_5.jpg",
+    "images/marioCards/mario_2.jpg",
     "images/marioCards/mario_6.jpg"
 ]
 
@@ -101,8 +103,10 @@ shuffleArray(cardImages);
 
 //Assigns cards randomly
 
-for(let i=0; i<cardContainer.length; i++){
-    cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
+function assignCards(){
+        for(let i=0; i<cardContainer.length; i++){
+        cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
+    };
 };
 
 //Shows congratulations page once complete
@@ -128,6 +132,9 @@ function pullStats(){
 }
 
 function playAgain(){
+    shuffleArray(cardImages);
+    assignCards();
+
     document.getElementById("congratulations").style.display="none";
     document.getElementById("gameWrapper").style.display="flex";
 
@@ -142,10 +149,12 @@ function playAgain(){
     for(let i = 0; i < cardContainer.length; i++){
         cardContainer[i].classList.remove("matchedCards");
     };
+
+    console.log(cardImages);
 };
 
 
-
+console.log(cardImages);
 
 
 
