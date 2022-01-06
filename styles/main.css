@@ -1,14 +1,37 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;    
+}
+
+nav {
+    padding: 10px;
+    color: white;
+    background-color: black;
+}
+
+.nav-container {
+    max-width: 300px;
+    margin:auto;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+#wrapper {
+    min-height: 100vh;
+    min-width: 100%;
     background-image: url("../images/marioBG.jpeg");
     background-repeat: repeat-x;
     background-attachment: fixed;
     background-position: bottom; 
     background-color: #021234;
+    position: relative;
 }
 
-#wrapper { 
+main { 
     padding: 20px;
     width: 50%;
     border-radius: 5px;
@@ -16,9 +39,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    position: absolute;
 }
 
-#wrapper::after {
+main::after {
     background-image: url("../images/white.jpeg");
     background-repeat: repeat;
     opacity: 50%;
@@ -185,8 +209,31 @@ header {
     flex-direction: column;
 }
 
+footer{
+    background-color: black;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+.footer-container {
+    max-width: 300px;
+    margin:auto;
+    text-align: center;
+    padding:10px;
+    box-sizing: border-box;
+}
+
+.footer-item {
+    width: 50%;
+    text-align: center;
+    float: left;
+}
+
 @media (max-width: 1200px) {
-    #wrapper{
+    main {
         width: 70%;
     }
     #card-grid{
@@ -203,7 +250,7 @@ header {
 }
 
 @media (max-width: 700px) {
-    #wrapper{
+    main {
         width: 80%;
     }
     .mario{
