@@ -4,11 +4,11 @@
     <title>Pairs Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/main.css">
+
 </head>
 <body>
 <nav>
-    <div class="nav-container"><img src="images/mushroom-white.gif" alt="Mario navigation bar icon." width="50"></div>
-    <div class="nav-container"><p>Home</p></div>
+    <div class="nav-container"><img src="images/mushroom-white.gif" alt="Mario navigation bar icon." width="40"></div>
 </nav>    
 <div id="wrapper">
     <div id="modal">
@@ -23,25 +23,36 @@
     <div id="overlay"></div>
     <main>
         <div id="welcome">
-            <p>Welcome to the Mario pairs game</p>
-            <p>Instructions</p>
-            <ol>
-                <li>Please fill in the form below and click 'Play now' to start the game.</li>
-                <li>Once the game begins click any 2 cards to reveal the image beneath and try to find a pair.</li>
-                <li>The aim of the game is to complete each round in the fastest time and in the fewest moves.</li>
-                <li>You'll have the option to pause or restart the game at any time.</li>
-                <li>Once each round is complete you'll have the option to reset the game to try and beat your score.</li>
-            </ol>
-
-            <form>
-                <label for="userName">Enter Name <span style="font-size: 0.7em; color: gray;">(optional)</span></label><br>
-                <input type="text" id="userName"><br><br>
-                Enable audio?<br>
-                <input type="radio" id="yes" name="enable-audio" value="yes" checked>
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="enable-audio" value="no">
-                <label for="no">No</label><br><br>
-                <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()">
+            <div id="welcome-header">
+                <p>Welcome to the</p>
+                <div><img src="images/mariologo.png" alt="Mario" width="100"></div>
+                <p>pairs game</p>
+            </div>
+            <div id="instructions">
+                <p><strong>Instructions</strong></p>
+                <ol>
+                    <li>Please fill in the form below and click 'Play now' to start the game.</li>
+                    <li>Once the game begins click any 2 cards to reveal the image beneath and try to find a pair.</li>
+                    <li>The aim of the game is to complete each round in the fastest time and in the fewest moves.</li>
+                    <li>You'll have the option to pause or restart the game at any time.</li>
+                    <li>Once each round is complete you'll have the option to reset the game to try and beat your score.</li>
+                </ol>
+            </div>
+            <form id="welcome-form">
+                <div>
+                    <label for="userName"><strong>Enter Name</strong> <span style="font-size: 0.7em; color: gray;">(optional)</span></label><br>
+                    <input type="text" id="userName"><br><br>
+                </div>
+                <div>
+                    <strong>Enable audio?</strong><br>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label><br><br>
+                </div>
+                <div>
+                    <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()" class="play-now">
+                </div>
             </form>
         </div>
         <div id="gameWrapper">
@@ -109,7 +120,7 @@
                 <div>
                     <p>Pause</p>
                     <img src="images/pause.png" alt="Pause game" width="25" style="display: inline;" onclick="pause()" id="pauseButton">
-                    <img src="images/play.png.crdownload" alt="Continue game" width="25" style="display: none;" onclick="play()" id="playButton">
+                    <img src="images/play.png" alt="Continue game" width="25" style="display: none;" onclick="play()" id="playButton">
                 </div>
                 <div>
                     <p>Restart</p>
@@ -142,12 +153,12 @@
 <footer>
     <div class="footer-container">
         <div class="footer-item">
-            <p>Return to homepage</p>
+            <p>Return home</p>
         </div>
         <div class="footer-item">
             <p>Audio</p>
-            <img src="images/pause.png" alt="Disable audio" width="15" style="display: inline;" onclick="pause()" id="pauseButton">
-            <img src="images/play.png.crdownload" alt="Enable audio" width="15" style="display: none;" onclick="play()" id="playButton">
+            <img src="images/pause-white.png" alt="Disable audio" width="25" style="display: inline;" onclick="pause()" id="pauseButton">
+            <img src="images/play-white.png" alt="Enable audio" width="25" style="display: none;" onclick="play()" id="playButton">
         </div>
     </div>
     <div class="footer-container">
