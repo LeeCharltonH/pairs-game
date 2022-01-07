@@ -46,10 +46,11 @@ let isRevealing = false;
 let roundsPlayed = 0;
 let roundsInput = document.getElementById("roundsCounter");
 
-
 for(let i = 0; i < cardContainer.length; i++){
     
-    cardContainer[i].addEventListener("click", function revealCard(){
+    cardContainer[i].addEventListener("click", revealCard);
+    
+    function revealCard(){
         if(!isRevealing){
             
         cardContainer[i].classList.add("revealed");
@@ -79,7 +80,7 @@ for(let i = 0; i < cardContainer.length; i++){
             congrats();
          }, 2000);
         }
-    });
+    };
 }
 
 
@@ -170,6 +171,8 @@ function restart(){
     sec = 1;
     min = 0;
 
+    progressTimer();
+
     moves = 0;
 
     for(let i = 0; i < cardContainer.length; i++){
@@ -178,10 +181,15 @@ function restart(){
 
     modalWindow.classList.remove("active");
     modalOverlay.classList.remove("active");  
+
+    document.getElementById("pauseButton").style.display="inline";
+    document.getElementById("playButton").style.display="none";
 };
 
 function pause(){
     clearInterval(intervalId);
+
+    document.getElementById('block').style.display='block';
 
     audioPause.play();
 
@@ -191,6 +199,8 @@ function pause(){
 
 function play(){
     progressTimer();
+
+    document.getElementById('block').style.display='none';
 
     document.getElementById("pauseButton").style.display="inline";
     document.getElementById("playButton").style.display="none";
