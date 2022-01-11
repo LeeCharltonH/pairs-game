@@ -8,7 +8,9 @@
 </head>
 <body>
 <nav>
-    <div class="nav-container"><img src="images/mushroom-white.gif" alt="Mario navigation bar icon." width="40"></div>
+    <div class="nav-container return-home" onclick="homepage()">
+        <img src="images/mushroom-white.gif" alt="Mario navigation bar icon." width="40">
+    </div>
 </nav>    
 <div id="wrapper">
     <div id="modal">
@@ -46,7 +48,7 @@
                 <div>
                     <strong>Enable audio?</strong><br>
                     <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" id="toggle" onclick="audioSwitch()" checked>
                         <span class="slider round"></span>
                     </label><br><br>
                 </div>
@@ -57,7 +59,7 @@
         </div>
         <div id="gameWrapper">
             <header>
-                <p>Hello <span id="nameInput"></span></p>
+                <p id="welcome-message">Hello <span id="nameInput"></span></p>
                 <p>Select 2 cards below and try to find a match!</p>
             </header>
             <div id="card-grid">
@@ -154,12 +156,10 @@
 <footer>
     <div class="footer-container">
         <div class="footer-item">
-            <p>Return home</p>
+            <p class="return-home" onclick="homepage()">Return home</p>
         </div>
         <div class="footer-item">
-            <p>Audio</p>
-            <img src="images/pause-white.png" alt="Disable audio" width="25" style="display: inline;" onclick="pause()" id="pauseButton">
-            <img src="images/play-white.png" alt="Enable audio" width="25" style="display: none;" onclick="play()" id="playButton">
+            <p class="return-home" onclick="homepage()">Instructions</p>
         </div>
     </div>
     <div class="footer-container">

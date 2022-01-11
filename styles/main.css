@@ -50,6 +50,10 @@ nav a {
     color: white;
 }
 
+.return-home {
+    cursor: pointer;
+}
+
 #wrapper {
     position: relative;
     min-height: 90vh;
@@ -88,6 +92,11 @@ main::after {
     border-radius: 5px;
 }
 
+#welcome{
+    display: flex;
+    flex-direction: column;
+}
+
 #welcome-header {
     max-width: 400px;
     margin: auto;
@@ -98,6 +107,7 @@ main::after {
 #welcome-header p {
     margin: 0px;
     font-size: 3em;
+
 }
 
 #instructions {

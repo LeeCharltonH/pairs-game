@@ -3,13 +3,22 @@
 //This section runs a counter in the games progress bar
 let sec = 1;
 let min = 0;
-
 var intervalId
-
 let audioGameComplete = new Audio("audio/game-complete.wav"); //audio source: https://themushroomkingdom.net/media/smb/wav
 let audioPairFound = new Audio("audio/pair-found.wav");
 let audioPause = new Audio("audio/pause.wav");
+var audioToggle = 1;
 
+function audioSwitch(){
+    let checkBox = document.getElementById('toggle');
+
+    if (checkBox.checked == true){
+        audioToggle = 1;
+    } else {
+        audioToggle = 0;
+    }
+    console.log(audioToggle);
+}
 
 function progressTimer(){
     intervalId = setInterval(function(){
@@ -23,6 +32,16 @@ function progressTimer(){
     sec++;
     
     }, 1000);
+
+    
+};
+
+function homepage(){
+    clearInterval(intervalId);
+
+    document.getElementById("welcome").style.display="flex";
+    document.getElementById("gameWrapper").style.display="none";
+    document.getElementById("congratulations").style.display="none";
 };
 
 //Takes the name input and adds it to the welcome message of the game page
@@ -31,6 +50,9 @@ function welcomePopUp(){
 
     document.getElementById("welcome").style.display="none";
     document.getElementById("gameWrapper").style.display="flex";
+
+    document.getElementById("pauseButton").style.display="inline";
+    document.getElementById("playButton").style.display="none";
 
     let user = document.getElementById("userName").value;
     let helloMessage = document.getElementById("nameInput");
@@ -69,7 +91,9 @@ for(let i = 0; i < cardContainer.length; i++){
                     revealedCards[i+1].classList.remove("revealed");
                     revealedCards[i].classList.remove("revealed");
 
-                    audioPairFound.play();
+                    if(audioToggle === 1){
+                            audioPairFound.play();
+                        }
                     }
             } else if(revealedCards.length > 1){
                     for(let i = 0; i < cardContainer.length; i++){
