@@ -44,6 +44,30 @@ function homepage(){
     document.getElementById("congratulations").style.display="none";
 };
 
+function reset(){
+    clearInterval(intervalId);
+    shuffleArray(cardImages);
+    assignCards();
+
+    movesInput.innerHTML = 0;
+
+    sec = 1;
+    min = 0;
+
+    moves = 0;
+
+    for(let i = 0; i < cardContainer.length; i++){
+        cardContainer[i].classList.remove("matchedCards");
+    };
+
+    modalWindow.classList.remove("active");
+    modalOverlay.classList.remove("active");  
+
+    document.getElementById("welcome").style.display="flex";
+    document.getElementById("gameWrapper").style.display="none";
+    document.getElementById("congratulations").style.display="none";
+}
+
 //Takes the name input and adds it to the welcome message of the game page
 function welcomePopUp(){
     assignCards()
@@ -151,7 +175,9 @@ function congrats() {
         document.getElementById("gameWrapper").style.display="none";
         document.getElementById("congratulations").style.display="flex";
         pullStats();
-        audioGameComplete.play();
+        if(audioToggle === 1){
+            audioGameComplete.play();
+        }
      };
 };
 

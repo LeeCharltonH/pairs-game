@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Pairs Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=dev initial-scale=1">
     <link rel="stylesheet" href="styles/main.css">
 
 </head>
@@ -149,7 +149,10 @@
             <p>Congratulations</p>
             <p>Total time to complete: <span id="totalTime"></span>.</p>
             <p>Total moves to complete: <span id="totalMoves"></span>.</p>
-            <input type="button" value="Play Again" onclick="playAgain()">
+            <div class="button-container">
+                <button onclick="playAgain()" class="play-now">Next Round</button>
+                <button onclick="reset()" class="play-now">Restart</button>
+            </div>
         </div>
     </main>
 </div>

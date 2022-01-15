@@ -57,21 +57,21 @@ nav a {
 #wrapper {
     position: relative;
     min-height: 90vh;
-    min-width: 100%;
+    min-width: 100vw;
     background-image: url("../images/marioBG.jpeg");
     background-repeat: repeat-x;
     background-attachment: fixed;
     background-position: bottom; 
     background-color: #021234;
-    
+    overflow: auto;
 }
 
 main { 
     position: absolute;
     padding: 20px;
-    width: 60%;
+    width: 80%;
     border-radius: 5px;
-    top: 50%;
+    top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
     
@@ -208,6 +208,8 @@ input {
     border:none;
     box-shadow: 0 0 1px #f8d800;
     cursor:pointer;
+    font-size: 1.5em;
+    margin: 0 10px;
 }
 
 header {
@@ -378,6 +380,12 @@ header p {
     flex-direction: column;
 }
 
+
+
+.button-container {
+    align-self: center;
+}
+
 footer{
     background-color: black;
     color: white;
@@ -400,6 +408,7 @@ footer a {
     text-align: center;
     float: left;
 }
+
 
 @media (max-width: 1200px) {
     main {
@@ -449,6 +458,17 @@ footer a {
 
     #instructions {
         font-size: 1.1em;
+    }
+}
+
+@media (max-height: 650px) {
+    .card-row {
+        max-height: 80px;
+        margin-bottom: 5px;
+    }
+    .card-container img {
+        max-height: 80px;
+        width: auto;
     }
 }
 
