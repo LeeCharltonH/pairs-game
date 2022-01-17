@@ -55,6 +55,7 @@ function reset(){
     min = 0;
 
     moves = 0;
+    roundsPlayed = 0;
 
     for(let i = 0; i < cardContainer.length; i++){
         cardContainer[i].classList.remove("matchedCards");
