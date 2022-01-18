@@ -8,22 +8,22 @@
 </head>
 <body>
 <nav>
-    <div class="nav-container return-home" onclick="homepage()">
+    <div class="nav-container return-home" onclick="homepageModal()">
         <img src="images/mushroom-white.gif" alt="Mario navigation bar icon." width="40">
     </div>
 </nav>    
 <div id="wrapper">
     <div id="restart-modal" class="modal">
-        <div id="modal-title">
+        <div class="modal-title">
             Confirm to restart game
         </div>
-        <div id="modal-body">
+        <div class="modal-body">
             <button onclick="restart()">Restart</button>
             <button onclick="continueGame()">Continue</button>
         </div>
     </div>
     <div id="instructions-modal" class="modal">
-        <div id="modal-title">
+        <div class="modal-title">
             Instructions
             <ol>
                 <li>Try to find a pair by clicking 2 cards.</li>
@@ -32,11 +32,20 @@
                 <li>Once each round is complete you'll have the option to reset the game and try again to beat your score.</li>
             </ol>
         </div>
-        <div id="modal-body">
+        <div class="modal-body">
             <button onclick="continueGame()">Continue</button>
         </div>
     </div>
-    
+    <div id="homepage-modal" class="modal">
+        <div class="modal-title">
+            Returning to the homepage will restart the game and you will lose all progress.<br><br>
+            Click confirm to return to homepage.
+        </div>
+        <div class="modal-body">
+            <button onclick="homepage()">Confirm</button>
+            <button onclick="continueGame()">Continue</button>
+        </div>
+    </div>
     <div id="overlay"></div>
     <main>
         <div id="welcome">
@@ -68,7 +77,7 @@
                     </label><br><br>
                 </div>
                 <div>
-                    <input type="button" value="Play Now" onclick="welcomePopUp(), progressTimer()" class="play-now">
+                    <input type="button" value="Play Now" onclick="welcomePopUp()" class="play-now">
                 </div>
             </form>
         </div>
@@ -174,7 +183,7 @@
 <footer>
     <div class="footer-container">
         <div class="footer-item">
-            <p class="return-home" onclick="homepage()">Return home</p>
+            <p class="return-home" onclick="homepageModal()">Return home</p>
         </div>
         <div class="footer-item">
             <p class="return-home" onclick="instructionsModal()" id="instructions-link">Instructions</p>

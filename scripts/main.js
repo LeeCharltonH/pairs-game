@@ -42,6 +42,9 @@ const homepage = () => {
     document.getElementById("welcome").style.display="flex";
     document.getElementById("gameWrapper").style.display="none";
     document.getElementById("congratulations").style.display="none";
+
+    homepageModalWindow.classList.remove("active");
+    modalOverlay.classList.remove("active");
 };
 
 const reset = () => {
@@ -71,7 +74,7 @@ const reset = () => {
 
 //Takes the name input and adds it to the welcome message of the game page
 const welcomePopUp = () => {
-    assignCards()
+    restart();
 
     document.getElementById("welcome").style.display="none";
     document.getElementById("gameWrapper").style.display="flex";
@@ -236,6 +239,11 @@ const restart = () => {
 
     document.getElementById("pauseButton").style.display="inline";
     document.getElementById("playButton").style.display="none";
+
+    let revealedCards = document.getElementsByClassName("revealed");
+    for(let i = 0; i < revealedCards.length; i++){
+        revealedCards[i].classList.remove("revealed");
+    };
 };
 
 const pause = () => {
@@ -269,7 +277,7 @@ const restartModal = () => {
     modalOverlay.classList.add("active");      
 };
 
-const instructionModalWindow = document.getElementById("instructions-modal")
+const instructionModalWindow = document.getElementById("instructions-modal");
 
 const instructionsModal = () => {
     clearInterval(intervalId);
@@ -278,11 +286,27 @@ const instructionsModal = () => {
     modalOverlay.classList.add("active"); 
 }
 
+const homepageModalWindow = document.getElementById("homepage-modal");
+
+const homepageModal = () => {
+    const element = document.getElementById('welcome');
+    const style = window.getComputedStyle(element);
+    const display = style.getPropertyValue('display');
+    
+    if(display !== "flex"){
+    clearInterval(intervalId);
+
+    homepageModalWindow.classList.add("active");
+    modalOverlay.classList.add("active"); 
+    };
+};
+
 const continueGame = () => {
     progressTimer();
 
     restartModalWindow.classList.remove("active");
     instructionModalWindow.classList.remove("active");
+    homepageModalWindow.classList.remove("active");
     modalOverlay.classList.remove("active");
 };
 
