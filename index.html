@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pairs Game</title>
-    <meta name="viewport" content="width=device-width, height=dev initial-scale=1">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
     </div>
 </nav>    
 <div id="wrapper">
-    <div id="modal">
+    <div id="restart-modal" class="modal">
         <div id="modal-title">
             Confirm to restart game
         </div>
@@ -22,6 +22,21 @@
             <button onclick="continueGame()">Continue</button>
         </div>
     </div>
+    <div id="instructions-modal" class="modal">
+        <div id="modal-title">
+            Instructions
+            <ol>
+                <li>Try to find a pair by clicking 2 cards.</li>
+                <li>The aim of the game is to complete each round in the fastest time and in the fewest moves.</li>
+                <li>You can pause or restart at any point.</li>
+                <li>Once each round is complete you'll have the option to reset the game and try again to beat your score.</li>
+            </ol>
+        </div>
+        <div id="modal-body">
+            <button onclick="continueGame()">Continue</button>
+        </div>
+    </div>
+    
     <div id="overlay"></div>
     <main>
         <div id="welcome">
@@ -37,7 +52,7 @@
                     <li>Once the game begins click any 2 cards to reveal the image beneath and try to find a pair.</li>
                     <li>The aim of the game is to complete each round in the fastest time and in the fewest moves.</li>
                     <li>You'll have the option to pause or restart the game at any time.</li>
-                    <li>Once each round is complete you'll have the option to reset the game to try and beat your score.</li>
+                    <li>Once each round is complete you'll have the option to reset the game and try again to beat your score.</li>
                 </ol>
             </div>
             <form id="welcome-form">
@@ -162,7 +177,7 @@
             <p class="return-home" onclick="homepage()">Return home</p>
         </div>
         <div class="footer-item">
-            <p class="return-home" onclick="homepage()">Instructions</p>
+            <p class="return-home" onclick="instructionsModal()" id="instructions-link">Instructions</p>
         </div>
     </div>
     <div class="footer-container">

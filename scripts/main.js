@@ -3,24 +3,26 @@
 //This section runs a counter in the games progress bar
 let sec = 1;
 let min = 0;
-var intervalId
-let audioGameComplete = new Audio("audio/game-complete.wav"); //audio source: https://themushroomkingdom.net/media/smb/wav
-let audioPairFound = new Audio("audio/pair-found.wav");
-let audioPause = new Audio("audio/pause.wav");
-var audioToggle = 1;
+let intervalId;
+const audioGameComplete = new Audio("audio/game-complete.wav"); //audio source: https://themushroomkingdom.net/media/smb/wav
+const audioPairFound = new Audio("audio/pair-found.wav");
+const audioPause = new Audio("audio/pause.wav");
 
-function audioSwitch(){
-    let checkBox = document.getElementById('toggle');
 
-    if (checkBox.checked == true){
+const audioSwitch = () => {
+    const checkBox = document.getElementById('toggle');
+
+    if (checkBox.checked === true){
         audioToggle = 1;
     } else {
         audioToggle = 0;
-    }
-    console.log(audioToggle);
-}
+    };
+};
 
-function progressTimer(){
+let audioToggle = 1;
+
+const progressTimer = () => {
+
     intervalId = setInterval(function(){
     if(sec < 10){
         sec = "0" + sec;
@@ -32,11 +34,9 @@ function progressTimer(){
     sec++;
     
     }, 1000);
-
-    
 };
 
-function homepage(){
+const homepage = () => {
     clearInterval(intervalId);
 
     document.getElementById("welcome").style.display="flex";
@@ -44,7 +44,7 @@ function homepage(){
     document.getElementById("congratulations").style.display="none";
 };
 
-function reset(){
+const reset = () => {
     clearInterval(intervalId);
     shuffleArray(cardImages);
     assignCards();
@@ -61,16 +61,16 @@ function reset(){
         cardContainer[i].classList.remove("matchedCards");
     };
 
-    modalWindow.classList.remove("active");
+    restartModalWindow.classList.remove("active");
     modalOverlay.classList.remove("active");  
 
     document.getElementById("welcome").style.display="flex";
     document.getElementById("gameWrapper").style.display="none";
     document.getElementById("congratulations").style.display="none";
-}
+};
 
 //Takes the name input and adds it to the welcome message of the game page
-function welcomePopUp(){
+const welcomePopUp = () => {
     assignCards()
 
     document.getElementById("welcome").style.display="none";
@@ -79,25 +79,23 @@ function welcomePopUp(){
     document.getElementById("pauseButton").style.display="inline";
     document.getElementById("playButton").style.display="none";
 
-    let user = document.getElementById("userName").value;
-    let helloMessage = document.getElementById("nameInput");
+    const user = document.getElementById("userName").value;
+    const helloMessage = document.getElementById("nameInput");
     helloMessage.innerHTML = user;
-}
+};
 
 
 //Reveals cards and checks for a match
-let cardContainer = document.getElementsByClassName("card-container");
+const cardContainer = document.getElementsByClassName("card-container");
 let moves = 0;
-let movesInput = document.getElementById("movesCounter");
+const movesInput = document.getElementById("movesCounter");
 let isRevealing = false;
 let roundsPlayed = 0;
-let roundsInput = document.getElementById("roundsCounter");
+const roundsInput = document.getElementById("roundsCounter");
 
 for(let i = 0; i < cardContainer.length; i++){
     
-    cardContainer[i].addEventListener("click", revealCard);
-    
-    function revealCard(){
+    const revealCard = () => {
         if(!isRevealing){
             
         cardContainer[i].classList.add("revealed");
@@ -106,7 +104,7 @@ for(let i = 0; i < cardContainer.length; i++){
         if(revealedCards.length > 1){
             isRevealing = true;
             movesInput.innerHTML = moves += 1; 
-        }
+        };
         
         setTimeout(function(){
             if(revealedCards.length > 1 && revealedCards[0].childNodes[1].getAttribute("src") === revealedCards[1].childNodes[1].getAttribute("src")){
@@ -118,7 +116,7 @@ for(let i = 0; i < cardContainer.length; i++){
 
                     if(audioToggle === 1){
                             audioPairFound.play();
-                        }
+                        };
                     }
             } else if(revealedCards.length > 1){
                     for(let i = 0; i < cardContainer.length; i++){
@@ -126,10 +124,13 @@ for(let i = 0; i < cardContainer.length; i++){
                 }
             }
             isRevealing = false;
+            
             congrats();
          }, 2000);
-        }
+        };
     };
+
+    cardContainer[i].addEventListener("click", revealCard);
 }
 
 
@@ -147,22 +148,22 @@ let cardImages = [
     "images/marioCards/mario_5.jpg",
     "images/marioCards/mario_2.jpg",
     "images/marioCards/mario_6.jpg"
-]
+];
 
-function shuffleArray(array) {//source:https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+const shuffleArray = (array) => {//source:https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-    }
-}
+    };
+};
 
 shuffleArray(cardImages);
 
 //Assigns cards randomly
 
-function assignCards(){
+const assignCards = () => {
         for(let i=0; i<cardContainer.length; i++){
         cardContainer[i].childNodes[1].setAttribute("src", cardImages[i]);
     };
@@ -170,30 +171,30 @@ function assignCards(){
 
 //Shows congratulations page once complete
 
-function congrats() {
-    let matchedCards = document.getElementsByClassName("matchedCards");
+const congrats = () => {
+    const matchedCards = document.getElementsByClassName("matchedCards");
      if(matchedCards.length == 12){
         document.getElementById("gameWrapper").style.display="none";
         document.getElementById("congratulations").style.display="flex";
         pullStats();
         if(audioToggle === 1){
             audioGameComplete.play();
-        }
+        };
      };
 };
 
-function pullStats(){
-    let timeToComplete = document.getElementById("timer").innerHTML;
-    let movesToComplete = document.getElementById("movesCounter").innerHTML;
-    let congratsPageTime = document.getElementById("totalTime");
-    let congratsPageMoves = document.getElementById("totalMoves");
+const pullStats = () => {
+    const timeToComplete = document.getElementById("timer").innerHTML;
+    const movesToComplete = document.getElementById("movesCounter").innerHTML;
+    const congratsPageTime = document.getElementById("totalTime");
+    const congratsPageMoves = document.getElementById("totalMoves");
 
     congratsPageTime.innerHTML = timeToComplete;
     congratsPageMoves.innerHTML = movesToComplete;
 
-}
+};
 
-function playAgain(){
+const playAgain = () => {
     shuffleArray(cardImages);
     assignCards();
 
@@ -213,7 +214,7 @@ function playAgain(){
     };
 };
 
-function restart(){
+const restart = () => {
     shuffleArray(cardImages);
     assignCards();
 
@@ -230,25 +231,26 @@ function restart(){
         cardContainer[i].classList.remove("matchedCards");
     };
 
-    modalWindow.classList.remove("active");
+    restartModalWindow.classList.remove("active");
     modalOverlay.classList.remove("active");  
 
     document.getElementById("pauseButton").style.display="inline";
     document.getElementById("playButton").style.display="none";
 };
 
-function pause(){
+const pause = () => {
     clearInterval(intervalId);
 
     document.getElementById('block').style.display='block';
-
-    audioPause.play();
+    if(audioToggle === 1){
+        audioPause.play();
+    };
 
     document.getElementById("pauseButton").style.display="none";
     document.getElementById("playButton").style.display="inline";
 };
 
-function play(){
+const play = () => {
     progressTimer();
 
     document.getElementById('block').style.display='none';
@@ -257,20 +259,30 @@ function play(){
     document.getElementById("playButton").style.display="none";
 };
 
-let modalWindow = document.getElementById("modal");
-let modalOverlay = document.getElementById("overlay");
+const restartModalWindow = document.getElementById("restart-modal");
+const modalOverlay = document.getElementById("overlay");
 
-function restartModal() {
+const restartModal = () => {
     clearInterval(intervalId);
 
-    modalWindow.classList.add("active");
+    restartModalWindow.classList.add("active");
     modalOverlay.classList.add("active");      
 };
 
-function continueGame() {
+const instructionModalWindow = document.getElementById("instructions-modal")
+
+const instructionsModal = () => {
+    clearInterval(intervalId);
+
+    instructionModalWindow.classList.add("active");
+    modalOverlay.classList.add("active"); 
+}
+
+const continueGame = () => {
     progressTimer();
 
-    modalWindow.classList.remove("active");
+    restartModalWindow.classList.remove("active");
+    instructionModalWindow.classList.remove("active");
     modalOverlay.classList.remove("active");
 };
 
