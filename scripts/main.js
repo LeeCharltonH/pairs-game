@@ -176,7 +176,7 @@ const assignCards = () => {
 
 const congrats = () => {
     const matchedCards = document.getElementsByClassName("matchedCards");
-     if(matchedCards.length == 12){
+     if(matchedCards.length === 12){
         document.getElementById("gameWrapper").style.display="none";
         document.getElementById("congratulations").style.display="flex";
         pullStats();

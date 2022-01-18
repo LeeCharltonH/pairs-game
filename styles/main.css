@@ -380,7 +380,18 @@ header p {
     flex-direction: column;
 }
 
+.form-optional{
+    font-size: 0.7em;
+    color: gray;
+}
 
+#pauseButton{
+    display: inline;
+}
+
+#playButton {
+    display:none;
+}
 
 .button-container {
     align-self: center;
