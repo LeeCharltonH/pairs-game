@@ -310,6 +310,23 @@ const continueGame = () => {
     modalOverlay.classList.remove("active");
 };
 
+const soundOnIcon = document.getElementById('sound-icon-on');
+const soundOffIcon = document.getElementById('sound-icon-off');
+
+soundOnIcon.addEventListener("click", function(){
+    soundOnIcon.style.display = "none";
+    soundOffIcon.style.display = "inline-block";
+    audioToggle = 0;
+    console.log(audioToggle)
+});
+
+soundOffIcon.addEventListener("click", function(){
+    soundOffIcon.style.display = "none";
+    soundOnIcon.style.display = "inline-block";
+    audioToggle = 1;
+    console.log(audioToggle)
+});
+
 
 
 

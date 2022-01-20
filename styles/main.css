@@ -402,6 +402,14 @@ footer{
     color: white;
 }
 
+.sound-icon{
+    height: 25px;
+}
+
+#sound-icon-off{
+    display: none;
+}
+
 footer a {
     color: white;
 }
